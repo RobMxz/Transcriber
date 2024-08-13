@@ -1,1 +1,20 @@
-[13/08/2024 00:11:12] :  But in real life it must be complicated because they should never have free time. No, in real life it must be very difficult to do both at the same time.
+[12/08/2024][23:56:59]
+Detected language : fr
+Original text: " Mais en vrai ça doit être compliqué parce qu'ils ne doivent jamais avoir de temps libre. Non en vrai ça doit être très compliqué de faire les deux en même temps."
+Text translated : " But in real life it must be complicated because they should never have free time. No, in real life it must be very difficult to do both at the same time."
+
+[12/08/2024][23:57:21]
+Detected language : en
+Original text: " Or you could have spoken English."
+Text translated : " Or you could have spoken English."
+
+[12/08/2024][23:57:44]
+Detected language : en
+Original text: " I'm sorry but that's cheat. How come you have solo? You only have a month."
+Text translated : " I'm sorry but that's cheat. How come you have solo? Eh solo. You only have a month."
+
+[12/08/2024][23:58:41]
+Detected language : fr
+Original text: " Et non, il me m'a clacé un truc."
+Text translated : " eeeeeeh.. no i didn't backpack"
+

@@ -64,9 +64,9 @@ for filename in os.listdir(audio_folder):
 
 `📦Translator`  
 `┣ 📂Audios`  
-`┃ ┗ 📜X1.ogg`
-`┃ ┗ 📜X2.ogg`
-`┃ ┗ 📜X3.ogg`
+`┃ ┗ 📜X1.ogg`  
+`┃ ┗ 📜X2.ogg`  
+`┃ ┗ 📜X3.ogg`  
 `┣ 📜log.txt`  
 `┣ 📜README.md`  
 

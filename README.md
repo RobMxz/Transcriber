@@ -33,11 +33,11 @@ with open("/workspaces/Translator/log.txt", "a") as log_file:
 
 ## 📁Estructura del proyecto
 
-📦Translator
- ┣ 📂workspace
- ┃ ┗ 📜log.txt
- ┣ 📜README.md
- ┗ 📜X.ogg
+`📦Translator`
+` ┣ 📂workspace`
+` ┃ ┗ 📜log.txt`
+` ┣ 📜README.md`
+` ┗ 📜X.ogg`
 
 ## 🛠️ Requisitos
 

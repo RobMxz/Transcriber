@@ -30,6 +30,15 @@ with open("/workspaces/Translator/log.txt", "a") as log_file:
     log_message = f"[{current_time}] : {result['text']}\n"
     log_file.write(log_message)
 ```
+
+## 📁Estructura del proyecto
+
+📦Translator
+ ┣ 📂workspace
+ ┃ ┗ 📜log.txt
+ ┣ 📜README.md
+ ┗ 📜X.ogg
+
 ## 🛠️ Requisitos
 
 - Python 3.8-3.11

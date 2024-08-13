@@ -32,7 +32,7 @@ with open("/workspaces/Translator/log.txt", "a") as log_file:
 ```
 ## 🛠️ Requisitos
 
-- Python 3.x
+- Python 3.8-3.11
 - Biblioteca Whisper (`pip install -U openai-whisper`)
 
 ## 🌟 ¡Contribuciones!

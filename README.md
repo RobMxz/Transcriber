@@ -1,6 +1,6 @@
-# 🎧 Whisper Translator
+# 🎧 Whisper Transcriber
 
-¡Bienvenido a **Whisper Translator**! 🚀 Este proyecto es una aplicación que utiliza el modelo `whisper` para transcribir y traducir archivos de audio automáticamente. Además, mantiene un registro detallado de todas las transcripciones y traducciones en un archivo de log. 📜
+¡Bienvenido a **Whisper Transcriber**! 🚀 Este proyecto es una aplicación que utiliza el modelo `whisper` para transcribir y traducir archivos de audio automáticamente. Además, mantiene un registro detallado de todas las transcripciones y traducciones en un archivo de log. 📜
 
 ## 🛠️ Características
 

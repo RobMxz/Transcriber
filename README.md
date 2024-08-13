@@ -1,48 +1,80 @@
 # 🎧 Whisper Translator
 
-¡Bienvenido a **Whisper Translator**! 🚀 Este proyecto es una aplicación simple que utiliza el modelo `whisper` para transcribir y traducir archivos de audio automáticamente. Además, mantiene un registro de todas las transcripciones en un archivo de log. 📜
+¡Bienvenido a **Whisper Translator**! 🚀 Este proyecto es una aplicación que utiliza el modelo `whisper` para transcribir y traducir archivos de audio automáticamente. Además, mantiene un registro detallado de todas las transcripciones y traducciones en un archivo de log. 📜
 
 ## 🛠️ Características
 
 - **Transcripción Automática**: Convierte audio en texto utilizando el modelo Whisper.
 - **Traducción**: Traduce el contenido del audio al inglés (u otro idioma si lo ajustas).
-- **Registro de Logs**: Guarda cada transcripción con una marca de tiempo para futuras referencias.
+- **Registro de Logs**: Guarda cada transcripción y traducción con una marca de tiempo para futuras referencias.
 
 ## 📝 Cómo funciona
 
-1. **Carga del Modelo**: Se carga el modelo pequeño (`small`) de Whisper para realizar la transcripción.
-2. **Transcripción y Traducción**: El archivo de audio (`X.ogg`) es procesado para obtener la transcripción y traducción al inglés.
-3. **Guardado en Log**: La transcripción se guarda en un archivo `log.txt` con la fecha y hora en que se realizó.
+1. **Carga del Modelo**: Se carga el modelo `small` de Whisper para realizar la transcripción.
+2. **Procesamiento de Archivos de Audio**: Se recorren los archivos `.ogg` en la carpeta `Audios`, y cada uno es procesado para obtener la transcripción y la traducción al inglés.
+3. **Guardado en Log**: Tanto la transcripción como la traducción se guardan en un archivo `log.txt` con la fecha y hora en que se realizó.
 
 ## 🚀 Ejecución del Código
 
 Para ejecutar este código, asegúrate de tener instaladas las dependencias necesarias y simplemente corre el script. Aquí hay un resumen rápido:
 
 ```python
-import whisper
+import os
 from datetime import datetime
+import pytz
+import whisper
 
+# Cargar el modelo
 model = whisper.load_model("small")
-result = model.transcribe("X.ogg", task="translate")
-print(result["text"])
-with open("/workspaces/Translator/log.txt", "a") as log_file:
-    current_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-    log_message = f"[{current_time}] : {result['text']}\n"
-    log_file.write(log_message)
+
+# Ruta del archivo de registro
+log_file_path = "/workspaces/Translator/log.txt"
+
+# Ruta de la carpeta de audios
+audio_folder = "/workspaces/Translator/Audios"
+
+# Zona horaria de Perú
+peru_tz = pytz.timezone('America/Lima')
+
+# Procesar los archivos de audio
+for filename in os.listdir(audio_folder):
+    if filename.endswith(".ogg"):
+        audio_path = os.path.join(audio_folder, filename)
+        result_transcribe = model.transcribe(audio_path)
+        result_translate = model.transcribe(audio_path, task="translate")
+        
+        # Obtener la hora actual en la zona horaria de Perú
+        current_time = datetime.now(peru_tz).strftime("%d/%m/%Y %H:%M:%S")
+        
+        # Construir el mensaje de log
+        log_message = (
+            f"[{datetime.now(peru_tz).strftime('%d/%m/%Y')}][{datetime.now(peru_tz).strftime('%H:%M:%S')}]\n"
+            f"Detected language : {result_translate['language']}\n"
+            f"Original text: \"{result_transcribe['text']}\"\n"
+            f"Text translated : \"{result_translate['text']}\"\n"
+            "\n"
+        )
+        
+        # Escribir en el archivo de registro
+        with open(log_file_path, "a") as log_file:
+            log_file.write(log_message)
 ```
 
 ## 📁Estructura del proyecto
 
 `📦Translator`  
-` ┣ 📂workspace`  
-` ┃ ┗ 📜log.txt`  
-` ┣ 📜README.md`  
-` ┗ 📜X.ogg`  
+`┣ 📂Audios`  
+`┃ ┗ 📜X1.ogg`
+`┃ ┗ 📜X2.ogg`
+`┃ ┗ 📜X3.ogg`
+`┣ 📜log.txt`  
+`┣ 📜README.md`  
 
 ## 🛠️ Requisitos
 
 - Python 3.8-3.11
 - Biblioteca Whisper (`pip install -U openai-whisper`)
+- pytz (`pip install pytz`)
 
 ## 🌟 ¡Contribuciones!
 
